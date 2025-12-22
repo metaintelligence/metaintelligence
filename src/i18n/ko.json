@@ -1,10 +1,38 @@
 {
   "nav": {
-    "company": "회사 소개",
-    "introduction": "소개",
-    "startup": "스타트업",
-    "mobileApp": "모바일 앱",
-    "personal": "개인"
+    "company": {
+      "title": "회사 소개",
+      "submenu": {
+        "identity": "정체성 및 가치",
+        "history": "미션 및 연혁",
+        "culture": "조직 문화"
+      }
+    },
+    "technology": {
+      "title": "기술 역량",
+      "submenu": {
+        "philosophy": "기술 철학",
+        "core_tech": "핵심 기술 (AI·HPC)",
+        "csaic_team": "전문가 그룹 (CSAIC)"
+      }
+    },
+    "solutions": {
+      "title": "솔루션",
+      "submenu": {
+        "mvi": "제조 비전 AI (MVI)",
+        "ida": "문서 분석 AI (IDA)",
+        "strategy": "사업 전략"
+      }
+    },
+    "resources": {
+      "title": "인사이트",
+      "submenu": {
+        "corporate": "공지사항",
+        "case_study": "적용 사례",
+        "tech_insight": "기술 블로그",
+        "culture_people": "팀과 문화"
+      }
+    }
   },
   "header": {
     "download": "다운로드",
@@ -16,7 +44,7 @@
     "hero": {
       "tagline": "MetaIntelligence",
       "title": "MetaIntelligence에 오신 것을 환영합니다",
-      "subtitle": "우리는 비즈니스에 지능형 솔루션을 제공하여 더 나은 결정을 돕습니다."
+      "subtitle": "Insight into Essence, Design for Value"
     },
     "identity": {
       "title": "Identity",

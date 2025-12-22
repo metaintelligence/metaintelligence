@@ -3,126 +3,63 @@ import { I18N } from 'metaintelligence:config';
 import en from '~/i18n/en.json';
 import ko from '~/i18n/ko.json';
 
-const T = I18N?.language === 'ko' ? ko : en;
+// Helper: resolve a dotted key path from the i18n files and return
+// an object { en: string, ko: string } when present.
+const resolveI18nPair = (keyPath: string) => {
+  const get = (obj: any, path: string) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+  const enVal = get(en, keyPath);
+  const koVal = get(ko, keyPath);
+  if (enVal === undefined && koVal === undefined) return undefined;
+  return { en: enVal ?? '', ko: koVal ?? '' };
+};
 
+// headerData provides both English and Korean labels so the client
+// can toggle language dynamically. Each `text` value is either a
+// string or an object: { en: string, ko: string }.
 export const headerData = {
   links: [
     {
-      text: T.nav.company,
+      text: resolveI18nPair('nav.company.title') || 'Company',
       links: [
-        {
-          text: T.nav.introduction,
-          href: getPermalink('/homes/intro'),
-        },
-        {
-          text: T.nav.startup,
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: T.nav.mobileApp,
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: T.nav.personal,
-          href: getPermalink('/homes/personal'),
-        },
+        { text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values', href: getPermalink('/about/identity') },
+        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/about/history') },
+        { text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture', href: getPermalink('/about/culture') },
       ],
     },
     {
-      text: 'Pages',
+      text: resolveI18nPair('nav.technology.title') || 'Technology',
       links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
+        { text: resolveI18nPair('nav.technology.submenu.philosophy') || 'Tech Philosophy', href: getPermalink('/tech/philosophy') },
+        { text: resolveI18nPair('nav.technology.submenu.core_tech') || 'Core Capabilities', href: getPermalink('/tech/core-tech') },
+        { text: resolveI18nPair('nav.technology.submenu.csaic_team') || 'CSAIC Team', href: getPermalink('/tech/csaic-team') },
       ],
     },
     {
-      text: 'Landing',
+      text: resolveI18nPair('nav.solutions.title') || 'Solutions',
       links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
+        { text: resolveI18nPair('nav.solutions.submenu.strategy') || 'Business Strategy', href: getPermalink('/solutions/strategy') },
+        { text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)', href: getPermalink('/solutions/mvi') },
+        { text: resolveI18nPair('nav.solutions.submenu.ida') || 'Document AI (IDA)', href: getPermalink('/solutions/ida') },
       ],
     },
     {
-      text: 'Blog',
+      text: resolveI18nPair('nav.resources.title') || 'Resources',
       links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
+        { text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News', href: getPermalink('corporate', 'category') },
+        { text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies', href: getPermalink('case-studies', 'category') },
+        { text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight', href: getPermalink('tech-insight', 'category') },
+        { text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People', href: getPermalink('culture', 'category') },
       ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
-  actions: [{ text: T.header?.download ?? 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  actions: [
+    { 
+      text: resolveI18nPair('header.download') || 'Download', 
+      href: getPermalink('/contact'), 
+      target: '_self' 
+    },
+  ],
 };
-
 export const footerData = {
   links: [
     {

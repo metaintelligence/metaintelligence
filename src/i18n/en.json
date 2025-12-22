@@ -1,10 +1,38 @@
 {
   "nav": {
-    "company": "Company",
-    "introduction": "About Us",
-    "startup": "Startup",
-    "mobileApp": "Mobile App",
-    "personal": "Personal"
+    "company": {
+      "title": "Company",
+      "submenu": {
+        "identity": "Identity & Values",
+        "history": "Mission & Milestone",
+        "culture": "Work Culture"
+      }
+    },
+    "technology": {
+      "title": "Technology",
+      "submenu": {
+        "philosophy": "Tech Philosophy",
+        "core_tech": "Core Capabilities",
+        "csaic_team": "CSAIC Team"
+      }
+    },
+    "solutions": {
+      "title": "Solutions",
+      "submenu": {
+        "mvi": "Vision AI (MVI)",
+        "ida": "Document AI (IDA)",
+        "strategy": "Business Strategy"
+      }
+    },
+    "resources": {
+      "title": "Resources",
+      "submenu": {
+        "corporate": "Corporate News",
+        "case_study": "Case Studies",
+        "tech_insight": "Tech Insight",
+        "culture_people": "Culture & People"
+      }
+    }
   },
   "header": {
     "download": "Download",
