@@ -1,0 +1,95 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
+import { I18N } from 'metaintelligence:config';
+import en from '~/i18n/en.json';
+import ko from '~/i18n/ko.json';
+
+const T = I18N?.language === 'ko' ? ko : en;
+
+const metadata = {
+  title: 'Technology Philosophy — MetaIntelligence',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+
+  <Hero2
+    tagline="Technology Philosophy"
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'MetaIntelligence Technology',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-gray-900 dark:text-white highlight">
+        AI·Vision·SW Integrated System
+      </span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="block text-xl font-normal text-muted dark:text-slate-400">
+        MetaIntelligence는 문제의 본질을 탐구하고 연구하며, <br class="hidden md:inline" />
+        AI·Vision·SW 통합적 시스템을 통하여 해결하는 기술 기업입니다.
+      </span>
+    </Fragment>
+  </Hero2>
+
+  <Features3
+    title="Core Philosophy"
+    subtitle="MetaIntelligence가 기술을 대하는 태도"
+    columns={3}
+    isBeforeContent={true}
+    classes={{
+      // 카드를 깔끔하게 정렬하고 강조
+      panel: 'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-8 rounded-xl h-full flex flex-col',
+      icon: 'text-primary bg-blue-50 dark:bg-blue-900/20 p-3 rounded-full mb-4',
+    }}
+    items={[
+      {
+        // 철학 1: Essence over Trend
+        title: '본질에 기반한 기술 수용 (Essence over Trend)',
+        description: '최신 기술, 개발 트렌드, 연구 흐름을 빠르게 습득하며, 실용적 가치를 기준으로 개발에 적용합니다.',
+        icon: 'tabler:filter', // 본질을 걸러내는 이미지
+      },
+      {
+        // 철학 2: Robust Agility
+        title: '변화를 이기는 유연함 (Robust Agility)',
+        description: '실제 변화하는 환경에도 적응하는 유연한 소프트웨어 설계를 통해 실용적인 가치를 전달합니다.',
+        icon: 'tabler:topology-star-3', // 유연한 연결 구조
+      },
+      {
+        // 철학 3: Synergy of Experts
+        title: '전문가들의 시너지 (Synergy of Experts)',
+        description: '각 분야 최고 수준의 전문가들로 팀을 구성하며, 이들의 팀워크를 통해 고객에게 가치를 전달하는 시너지를 중시합니다.',
+        icon: 'tabler:users-group', // 팀워크
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Our Solutions',
+        href: '/solutions/mvi',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      MetaIntelligence
+    </Fragment>
+    <Fragment slot="subtitle">
+      본질에 집중하는 기술로 고객의 문제를 해결합니다.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -10,7 +10,7 @@ export const headerData = {
       text: resolveI18nPair('nav.company.title') || 'Company',
       links: [
         { text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values', href: getPermalink('/company/identity') },
-        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/company/history') },
+        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/company/mission-history') },
         { text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture', href: getPermalink('/company/culture') },
       ],
     },

@@ -1,0 +1,158 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
+
+const metadata = {
+  title: 'Business Strategy — MetaIntelligence',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+
+  <Hero2
+    tagline="Business Strategy"
+    title="From Deep Tech <br>to <span class='text-accent dark:text-white highlight'>Product</span>"
+    subtitle="우리는 원천 기술 연구(R&D)를 통해 산업의 고질적인 난제를 해결하며 수익을 창출하고(Cash-Cow),<br class='hidden md:inline'/> 검증된 기술을 표준화된 솔루션으로 확장하여 시장을 장악하는(Scale-up) 전략을 구사합니다."
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Business Strategy',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="Our Vision"
+    title="AX 2035: The Operating System for Industrial Intelligence"
+    subtitle="데이터가 흐르는 모든 산업 현장에 우리의 지능(Intelligence)을 이식합니다."
+    items={[
+      {
+        title: 'Manufacturing AI',
+        description:
+          '국내 제조 기업 상위 10%인 5만 개 사에 당사의 MVI(Machine Vision Intelligence) 소프트웨어를 도입하여, 공정 불량률 "Zero"에 도전합니다.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Knowledge AI',
+        description:
+          '제조를 넘어 법률·특허·심의 등 고도의 논리가 필요한 영역에서, 인간 전문가를 보조하는 가장 신뢰받는 "AI 에이전트"를 보급합니다.',
+        icon: 'tabler:books',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
+      alt: 'AX 2035 Vision',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        대한민국 AI 전환(AX)의<br> 핵심 파트너
+      </h3>
+      <p class="text-lg text-muted mt-4">
+        우리는 2035년까지 대한민국 제조 및 지식 산업의 AI 전환(AX)을 완수하는 것을 목표로 합니다.
+      </p>
+    </Fragment>
+  </Content>
+
+  <div class="bg-blue-50 dark:bg-slate-900/50 py-12 md:py-20">
+    <Steps
+      title="Business Model"
+      subtitle="초기 생존을 위한 현금 흐름과 유니콘 성장을 위한 확장성을 동시에 확보하는 하이브리드 모델"
+      isReversed={true}
+      items={[
+        {
+          title: 'Phase 1: High-End R&D & Consulting (Foundation)',
+          description: `
+            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+              <li><strong>Target:</strong> 기술 난이도가 높아 일반 AI 기업이 해결하지 못하는 대기업 및 공공기관</li>
+              <li><strong>Value:</strong> 물리학·NLP 박사급 인력의 맞춤형 모델링 및 난제 해결 (Corner Case Solution)</li>
+              <li><strong>Revenue:</strong> 고부가가치 R&D 용역, 기술 자문료, 초기 PoC 비용 (Cash Flow & Reference 확보)</li>
+            </ul>
+          `,
+          icon: 'tabler:flask', // R&D 상징
+        },
+        {
+          title: 'Phase 2: Vertical Solution Licensing (Expansion)',
+          description: `
+            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+              <li><strong>Target:</strong> AI 도입 의지가 있으나 전문 인력과 비용 장벽이 높은 중견/중소 기업 (SMB)</li>
+              <li><strong>Product:</strong> 
+                <ul class="list-circle ml-4 mt-1">
+                  <li>MVI (Meta Vision Intelligence): 범용 카메라 기반 제조 불량 검출 SW</li>
+                  <li>IDA (Intelligent Document Analyzer): 기업 문서/규제 분석 NLP 엔진</li>
+                </ul>
+              </li>
+              <li><strong>Revenue:</strong> 솔루션 라이선스(License) 판매 및 유지보수 구독료 (Profit Maximization)</li>
+            </ul>
+          `,
+          icon: 'tabler:package', // 패키지/솔루션 상징
+        },
+        {
+          title: 'Phase 3: AI Platform Ecosystem (Scale-up)',
+          description: `
+            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+              <li><strong>Target:</strong> 자체 AI 개발이 어려운 하드웨어 장비사 및 SI 파트너사</li>
+              <li><strong>Value:</strong> 독자적인 Vision-NLP 융합 엔진을 API 및 모듈 형태로 개방</li>
+              <li><strong>Revenue:</strong> 기술 이전료, API 사용료, 플랫폼 수수료 (Platform Business)</li>
+            </ul>
+          `,
+          icon: 'tabler:network', // 생태계/플랫폼 상징
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1553877616-1528073dd513?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+        alt: 'Business Roadmap',
+      }}
+    />
+  </div>
+
+  <Features2
+    title="Why MetaIntelligence Strategy Works"
+    subtitle="우리의 전략이 시장에서 통하는 이유"
+    columns={3}
+    items={[
+      {
+        title: 'Deep Tech Foundation',
+        description: '오픈소스 튜닝 수준이 아닌, 물리학과 수학에 기반한 원천 기술력 보유',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'Practical Scalability',
+        description: 'R&D로 검증된 기술만을 제품화하여 실패 확률을 최소화하고 시장성 확보',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+      {
+        title: 'Sustainable Growth',
+        description: 'Cash-Cow(용역)와 Scale-up(솔루션)의 조화를 통한 안정적 재무 구조',
+        icon: 'tabler:leaf',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Partner with Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Join the AX 2035 Journey
+    </Fragment>
+    <Fragment slot="subtitle">
+      MetaIntelligence와 함께 산업 지능화의 미래를 앞당기세요.
+    </Fragment>
+  </CallToAction>
+</Layout>
