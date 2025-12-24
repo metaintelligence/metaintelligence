@@ -48,6 +48,10 @@ export const headerData = {
           href: getPermalink('/solutions/strategy'),
         },
         {
+          text: resolveI18nPair('nav.solutions.submenu.openmv') || 'OpenMV',
+          href: getPermalink('/solutions/openmv'),
+        },
+        {
           text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)',
           href: getPermalink('/solutions/mvi'),
         },

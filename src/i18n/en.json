@@ -19,6 +19,7 @@
     "solutions": {
       "title": "Solutions",
       "submenu": {
+        "openmv": "OpenMV",
         "mvi": "Vision AI (MVI)",
         "ida": "Document AI (IDA)",
         "strategy": "Business Strategy"

@@ -19,6 +19,7 @@
     "solutions": {
       "title": "솔루션",
       "submenu": {
+        "openmv": "OpenMV",
         "mvi": "제조 비전 AI (MVI)",
         "ida": "문서 분석 AI (IDA)",
         "strategy": "사업 전략"
